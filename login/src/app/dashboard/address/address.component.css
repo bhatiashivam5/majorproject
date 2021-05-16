@@ -1,0 +1,27 @@
+#icon{
+  height: 200px;
+}
+
+.save{
+  font-weight: bold;
+  margin-left: 130px;
+}
+.noAddress-subHeading{
+  margin-left: 60px;
+}
+.mat-button{
+  margin-left: 160px;
+}
+
+
+.btn{
+  margin-left: 180px;
+}
+
+#save{
+  margin-left: 100px;
+}
+
+#close{
+  margin-left: 120px;
+}

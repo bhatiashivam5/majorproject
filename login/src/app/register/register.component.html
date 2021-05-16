@@ -1,0 +1,227 @@
+<div class="head">
+<div class="container">
+  <div class="row">
+    <div class="col-md-6" id="content1">
+      <img
+        class="img"
+        src="../../assets/Summer outfit men.jfif"
+        alt="register"
+      />
+    </div>
+<div class="col-md-6" id="content2">
+<mat-card class="mat">
+  <div class="toolbar">
+  <mat-toolbar class="tool1"><h2>Sign Up</h2></mat-toolbar>
+  <br /><br />
+
+  <form
+    name="form" class="form"
+    #userform="ngForm"
+    (ngSubmit)="addData(userform)"
+    noValidate>
+    <!-- username -->
+    <mat-form-field>
+      <input
+        type="text"
+        matInput
+        required
+        [(ngModel)]="userservice.newUser.fname"
+        name="fname"
+        #fname="ngModel"
+        placeholder="First Name"
+        ngModelname="fname"
+        [ngClass]="{ 'is-invalid': userform.submitted && fname.invalid }"
+        minlength="5"
+      />
+    </mat-form-field>
+
+    <!-- mat error -->
+    <mat-error *ngIf="userform.submitted && fname.invalid">
+      <mat-error *ngIf="fname.errors?.required">
+       First Name should be enter
+      </mat-error>
+
+      <mat-error *ngIf="fname.errors?.minlength">
+       Name must be at least 5 characters long.
+      </mat-error>
+    </mat-error>
+    <br><br>
+
+    <!-- username -->
+    <mat-form-field>
+      <input
+        type="text"
+        matInput
+        required
+        [(ngModel)]="userservice.newUser.lname"
+        name="lname"
+        #lname="ngModel"
+        placeholder="Last Name"
+        ngModelname="lname"
+        [ngClass]="{ 'is-invalid': userform.submitted && lname.invalid }"
+        minlength="5"
+      />
+    </mat-form-field>
+
+    <!-- mat error -->
+    <mat-error *ngIf="userform.submitted && lname.invalid">
+      <mat-error *ngIf="lname.errors?.required">
+       Last Name should be enter
+      </mat-error>
+
+      <mat-error *ngIf="lname.errors?.minlength">
+       Name must be at least 5 characters long.
+      </mat-error>
+    </mat-error>
+    <br><br>
+
+    <!-- useremail -->
+    <mat-form-field>
+      <input
+        type="email"
+        matInput
+        placeholder="Your Email"
+        ngModel
+        required
+        [(ngModel)]="userservice.newUser.email"
+        name="email"
+        #email="ngModel"
+        [ngClass]="{ 'is-invalid': userform.submitted && email.invalid }"
+        ngModelname="email"
+        minlength="5"
+      />
+    </mat-form-field>
+
+   <mat-error *ngIf="userform.submitted && email.invalid">
+    <mat-error *ngIf="email.errors?.required">
+     Email should be enter
+    </mat-error>
+
+    <mat-error *ngIf="email.errors?.minlength">
+       Email must be at least 5 characters long.</mat-error
+    >
+   </mat-error>
+<br><br>
+    <!-- contact -->
+    <mat-form-field>
+      <input
+        type="tel"
+        matInput
+        placeholder="Contact"
+        ngModel
+        name="contact"
+        required
+        [(ngModel)]="userservice.newUser.contact"
+        name="contact"
+        #contact="ngModel"
+        [ngClass]="{ 'is-invalid': userform.submitted && contact.invalid }"
+        ngModelname="contact"
+        minlength="10"
+        maxlength="10"
+      />
+    </mat-form-field>
+    <mat-error *ngIf="userform.submitted && contact.invalid">
+      <mat-error *ngIf="contact.errors?.required">
+       Contact no should be enter
+      </mat-error>
+
+      <mat-error *ngIf="contact.errors?.minlength">
+       Contact no must be at least 10 numbers long.</mat-error
+      >
+
+      <mat-error *ngIf="contact.errors?.maxlength">
+        Contact no must be at least 10 numbers long.</mat-error
+       >
+    </mat-error>
+<br><br>
+
+
+    <!-- password validation -->
+    <mat-form-field>
+      <input
+        type="password"
+        matInput
+        placeholder="Password"
+        required
+        [(ngModel)]="userservice.newUser.password"
+        name="password"
+        #password="ngModel"
+        [ngClass]="{ 'is-invalid': userform.submitted && password.invalid }"
+        ngModelname="password"
+        minlength="5"
+      /> </mat-form-field>
+    <mat-error *ngIf="userform.submitted && password.invalid">
+      <mat-error *ngIf="password.errors?.required">
+       Password should be enter
+      </mat-error>
+
+      <mat-error *ngIf="password.errors?.minlength">
+       Password must be at least 5 characters long.</mat-error
+      >
+    </mat-error>
+    <!-- password validation -->
+    <br><br>
+    <mat-form-field>
+      <input
+        type="text"
+        matInput
+        placeholder="Confirm Password"
+        ngModel
+        name="confirmpassword"
+        [(ngModel)]="model.confirmpassword"
+        name="confirmpassword"
+        #confirmpassword="ngModel"
+        [ngClass]="{
+          'is-invalid': userform.submitted && confirmpassword.invalid
+        }"
+        ngModelname="confirmpassword"
+        pattern="{{ password.value }}"
+        minlength="5"
+        required
+      />
+    </mat-form-field>
+
+    <mat-error *ngIf="userform.submitted && confirmpassword.invalid">
+      <mat-error *ngIf="confirmpassword.errors?.required">
+       Confirm password should be enter
+      </mat-error>
+      <mat-error *ngIf="confirmpassword.errors?.pattern">
+       Password does not match confirm password
+      </mat-error>
+    </mat-error>
+    <br><br>
+
+    <mat-checkbox class="check"
+      color="warn"
+      name="terms"
+      #terms="ngModel"
+      [(ngModel)]="model.terms"
+      required
+      [ngClass]="{ 'is-invalid': userform.submitted && terms.invalid }"
+      >I Agree to Terms & Conditions</mat-checkbox
+    >
+
+
+    <mat-error *ngIf="userform.submitted && terms.invalid">
+      <mat-error *ngIf="terms.errors?.required">Accept terms</mat-error>
+    </mat-error>
+
+<br><br>
+
+
+    <button
+      type="submit"
+      mat-raised-button
+      color="primary"
+
+    >
+      Submit</button>&nbsp;&nbsp;
+    <button type="submit" mat-raised-button color="primary">Clear</button>
+  </form>
+  <br /><br />
+  </div>
+</mat-card>
+</div>
+  </div>
+</div>
+</div>

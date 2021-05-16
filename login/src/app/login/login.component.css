@@ -1,0 +1,68 @@
+
+#content1{
+  margin-top: 5%;
+}
+
+#content2{
+  margin-top: 5% !important;
+}
+
+.mat-toolbar{
+  display: block;
+  padding: 13px;
+}
+
+.head{
+  /* background-image:url("../../assets/FASHION1.jfif"); */
+  background-image: linear-gradient(rgba(65,64,68,1) 0%, rgba(102,102,106,0.6842087176667542) 35%, rgba(76,105,88,0.06796221906731448) 100%);
+  min-height: 120%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width:100% !important;
+}
+
+.mat-checkbox-frame{
+  background-color: rgb(34, 36, 36) !important;
+}
+
+.img{
+  width: 100%;
+  height: 590px;
+  border-radius: 4px;
+}
+.mat{
+  height: 100%;
+  width:100%;
+}
+.span{
+  float: right;
+}
+.tool{
+  width: 70% ;
+  margin-left: 15%;
+  text-align: center;
+
+}
+
+.toolbar{
+  margin-top: 10% ;
+  text-align: center;
+}
+.mat-toolbar{
+  background-color: rgb(34, 36, 36) !important;
+  color: white;
+  text-align: center !important;
+}
+
+.mat-raised-button{
+  background-color:rgb(34, 36, 36) ;
+  width: 120px;
+}
+
+.login-card-footer-text{
+  color:rgb(34, 36, 36) ;
+}
+
+a{
+  color:rgb(34, 36, 36) ;
+}
