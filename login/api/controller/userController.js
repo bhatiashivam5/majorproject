@@ -1,8 +1,10 @@
 require('../model/registerModel');
 require('../config/passportConfig');
+require('../model/addressModel');
 const passport= require('passport')
 const mongoose = require('mongoose');
 var registerData=mongoose.model('register');
+var addressData=mongoose.model('address');
 
 
 const jwt = require('jsonwebtoken');
@@ -85,5 +87,34 @@ module.exports.selectedUser=(req,res)=>{
      error:err.message
 
    })
+  })
+}
+
+
+//to store address of user
+module.exports.addAddress=(req,res)=>{
+  var addData=new addressData({
+      Fname:req.body.Fname,
+      Lname:req.body.Lname,
+      Address1:req.body.Address1,
+      Address2:req.body.Address2,
+      City:req.body.City,
+      State:req.body.State,
+      Zip:req.body.Zip
+  });
+
+  addData.save().then((docs)=>{
+      return res.status(200).json({
+          success:true,
+          message:'New address recorded',
+          data:docs
+      })
+  })
+  .catch((err)=>{
+      return res.status(401).json({
+          success:false,
+          message:'Error in adding address',
+          error:err.message
+      })
   })
 }

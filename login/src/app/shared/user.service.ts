@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { loginUser, User } from './user.model';
+import { Useradd } from './user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +13,16 @@ export class UserService {
     email:'',
     contact:'',
     password:''
+  }
+
+  public Useradd : Useradd={
+    Fname:'',
+    Lname:'',
+    Address1:'',
+    Address2:'',
+    City:'',
+    State:'',
+    Zip:''
   }
 
   public existingUser:loginUser={
@@ -28,6 +39,13 @@ export class UserService {
   {
     return this.http.post('http://localhost:3000/auth',existUser);
   }
+
+  //to store user address
+  address(address:Useradd)
+  {
+    return this.http.post('http://localhost:3000/address',address);
+  }
+
 
 
   // to display profileinfo

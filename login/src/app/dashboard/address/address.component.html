@@ -13,12 +13,12 @@
 
 
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalScrollable">
+<button type="button" class="btn btn-dark" data-toggle="modal" data-target="#exampleModalScrollable">
   + Add Addresses
 </button>
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+<div class="modal fade" id="exampleModalScrollable" tabindex="-1" role="dialog"     aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-scrollable" role="document">
     <div class="modal-content">
       <div class="modal-header">
@@ -28,55 +28,156 @@
         </button>
       </div>
       <div class="modal-body">
-        <form>
+        <form name="form" class="form" #userform="ngForm"
+        (ngSubmit)="addAddress(userform)" noValidate>
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="inputFname">Fname</label>
-              <input type="text" class="form-control" id="inputEmail4" placeholder="Fname">
+              <label for="inputFname">First Name</label>
+              <input
+              type="text" id="inputEmail4" class="form-control"
+              matInput
+              required
+              [(ngModel)]="userservice.Useradd.Fname"
+              name="Fname"
+              #Fname="ngModel"
+              placeholder="First Name"
+              ngModelname="Fname"
+              [ngClass]="{ 'is-invalid': userform.submitted && Fname.invalid }"
+              minlength="5">
+
+               <!-- mat error -->
+    <mat-error *ngIf="userform.submitted && Fname.invalid">
+      <mat-error *ngIf="Fname.errors?.required">
+       First Name should be enter
+      </mat-error>
+
+      <mat-error *ngIf="Fname.errors?.minlength">
+       Name must be at least 5 characters long.
+      </mat-error>
+    </mat-error>
+    <br><br>
             </div>
+
+
             <div class="form-group col-md-6">
-              <label for="inputLname">Lname</label>
-              <input type="text" class="form-control" id="inputPassword4" placeholder="Lname">
+              <label for="inputLname">Last Name</label>
+              <input type="text" class="form-control" id="inputPassword4"
+              matInput
+              required
+              [(ngModel)]="userservice.Useradd.Lname"
+              name="Lname"
+              #Lname="ngModel"
+              placeholder="Last Name"
+              ngModelname="Lname"
+              [ngClass]="{ 'is-invalid': userform.submitted && Lname.invalid }"
+              minlength="5">
             </div>
+
+          <div class="form-group">
+           <label for="inputAddress">Address 1</label>
+           <input type="text" class="form-control" id="inputAddress" placeholder="House/Flat/Plot No"
+              matInput
+              required
+              [(ngModel)]="userservice.Useradd.Address1"
+              name="Address1"
+              #Address1="ngModel"
+              ngModelname="Address1"
+              [ngClass]="{ 'is-invalid': userform.submitted && Address1.invalid }"
+              minlength="15">
           </div>
           <div class="form-group">
-            <label for="inputAddress">Address</label>
-            <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-          </div>
-          <div class="form-group">
-            <label for="inputAddress2">Address 2</label>
-            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
+           <label for="inputAddress2">Address 2</label>
+            <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment/street/area"
+              matInput
+              required
+              [(ngModel)]="userservice.Useradd.Address2"
+              name="Address2"
+              #Address2="ngModel"
+              ngModelname="Address2"
+              [ngClass]="{ 'is-invalid': userform.submitted && Address2.invalid }"
+              minlength="15">
           </div>
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="inputCity">City</label>
-              <input type="text" class="form-control" id="inputCity">
+              <input type="text" class="form-control" id="inputCity"
+              matInput
+              required
+              [(ngModel)]="userservice.Useradd.City"
+              name="City"
+              #City="ngModel"
+              ngModelname="Address2"
+              [ngClass]="{ 'is-invalid': userform.submitted && City.invalid }"
+              minlength="10">
             </div>
             <div class="form-group col-md-4">
               <label for="inputState">State</label>
-              <select id="inputState" class="form-control">
-                <option selected>Choose...</option>
-                <option>...</option>
+              <select id="inputState" class="form-control"
+              matInput
+              required
+              [(ngModel)]="userservice.Useradd.State"
+              name="State"
+              #State="ngModel"
+              ngModelname="State"
+              [ngClass]="{ 'is-invalid': userform.submitted && State.invalid }"
+              minlength="10">
+                <option selected>Your State</option>
+                <option>Andhra Pradesh</option>
+                <option>Arunachal Pradesh</option>
+                <option>Assam</option>
+                <option>Bihar</option>
+                <option>Chhattisgarh</option>
+                <option>Goa</option>
+                <option>Gujarat</option>
+                <option>Haryana</option>
+                <option>Himachal Pradesh</option>
+                <option>Jharkhand</option>
+                <option>Karnataka</option>
+                <option>Kerala</option>
+                <option>Madhya Pradesh</option>
+                <option>Maharashtra</option>
+                <option>Manipur</option>
+                <option>Meghalaya</option>
+                <option>Mizoram</option>
+                <option>Nagaland</option>
+                <option>Odisha</option>
+                <option>Punjab</option>
+                <option>Rajasthan</option>
+                <option>Sikkim</option>
+                <option>Tamil Nadu</option>
+                <option>Telangana</option>
+                <option>Tripura</option>
+                <option>Uttarakhand</option>
+                <option>Uttar Pradesh</option>
+                <option>West Bengal</option>
+                <option>Andaman and Nicobar Islands</option>
+                <option>Chandigarh</option>
+                <option>Dadra and Nagar Haveli and Daman & Diu</option>
+                <option>Delhi</option>
+                <option>Jammu & Kashmir</option>
+                <option>Ladakh</option>
+                <option>Lakshadweep</option>
+                <option>Puducherry</option>
               </select>
-            </div>
+            </div><br><br>
             <div class="form-group col-md-2">
               <label for="inputZip">Zip</label>
-              <input type="text" class="form-control" id="inputZip">
+              <input type="text" class="form-control" id="inputZip"
+              matInput
+              required
+              [(ngModel)]="userservice.Useradd.Zip"
+              name="Zip"
+              #Zip="ngModel"
+              ngModelname="Zip"
+              [ngClass]="{ 'is-invalid': userform.submitted && Zip.invalid }"
+              minlength="10">
             </div>
           </div>
-          <div class="form-group">
-            <div class="form-check">
-              <input class="form-check-input" type="checkbox" id="gridCheck">
-              <label class="form-check-label" for="gridCheck">
-                Check me out
-              </label>
-            </div>
-          </div>
+         </div>
         </form>
-      </div>
       <div class="modal-footer">
-       <button type="button" class="btn btn-primary" id="save">Save</button>
-       <button type="button" class="btn btn-secondary" data-dismiss="modal" id="close">Close</button>
+       <button type="submit" mat-raised-button class="btn-dark rounded-pill" id="save" btn-dark>Save</button>
+       <button type="submit"  mat-raised-button class="btn-dark rounded-pill" data-dismiss="modal" id="close" btn-dark>Close</button>
       </div>
     </div>
   </div>

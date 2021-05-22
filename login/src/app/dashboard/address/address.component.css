@@ -18,10 +18,23 @@
   margin-left: 180px;
 }
 
-#save{
-  margin-left: 100px;
+
+.modal-title{
+  margin-left: 198px;
+  font-size: large;
+  font-weight: bold;
 }
 
+.modal-footer{
+  margin-left: 10px;
+  height: 120px;
+}
+
+#save{
+  width: 100% !important;
+  height: 40px;
+}
 #close{
-  margin-left: 120px;
+  width: 100% !important;
+  height: 40px;
 }

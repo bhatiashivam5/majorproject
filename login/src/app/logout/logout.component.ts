@@ -9,7 +9,7 @@ import { UserService } from '../shared/user.service';
 })
 export class LogoutComponent implements OnInit {
 
-  constructor(    private userservice:UserService,
+  constructor(    public userservice:UserService,
     private router:Router) { }
 
   ngOnInit(): void {
